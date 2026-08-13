@@ -59,7 +59,7 @@ def word_count(messages):
     words={"Python":0,"AI":0,"RAG":0,"Agent":0}
     for message in messages:
         for word in words.keys():
-            words[word]+=message["content"].count(word)
+            words[word]+=message["content"].lower().count(word.lower())
     print("各单词在messages出现次数：")
     for key,value in words.items():
         print(f"{key}: {value}")
@@ -77,15 +77,12 @@ def longest_message(messages):
 
 
 def average_message_length(messages):
-    roles=set()
-    for message in messages:
-        roles.add(message["role"])
     count={}
     total_len={}
     for message in messages:
         count[message["role"]]=count.get(message["role"],0)+1
         total_len[message["role"]]=total_len.get(message["role"],0)+len(message["content"])
-    for role in roles:
+    for role in count.keys():
         print(f"平均{role} message长度：{total_len[role]/count[role]}")
     
 
