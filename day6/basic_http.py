@@ -13,6 +13,7 @@ if __name__ == "__main__":
         print(f"仓库fork数：{data['forks_count']}")
         print(f"仓库使用语言：{data['language']}")
         print(f"仓库url：{data['html_url']}")
+        client.close()
     except  httpx.TimeoutException as e:
         print(f"请求超时: {e}")
     except  httpx.RequestError as e:

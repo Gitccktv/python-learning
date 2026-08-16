@@ -1,2 +1,2 @@
-BASE_URL="https://api.github.com/repos"
-TIMEOUT=10.0
+BASE_URL: str = "https://api.github.com"
+TIMEOUT: float = 10.0
